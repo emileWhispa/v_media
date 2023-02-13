@@ -72,7 +72,7 @@ class _RemoteTvPlayerState extends State<RemoteTvPlayer> {
         aspectRatio: 16 / 9,
         virtualDisplay: true,
         placeholder: const Center(child: CircularProgressIndicator()),
-      ) : const Center(child: CupertinoActivityIndicator(),),
+      ) : const Center(child: CircularProgressIndicator(),),
     );
   }
 }
