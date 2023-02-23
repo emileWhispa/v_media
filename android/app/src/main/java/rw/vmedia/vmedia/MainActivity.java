@@ -1,4 +1,4 @@
-package com.example.v_media;
+package rw.vmedia.vmedia;
 
 import io.flutter.embedding.android.FlutterActivity;
 
