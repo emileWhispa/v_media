@@ -56,7 +56,7 @@ class _HomeScreenState extends Superbase<HomeScreen> {
             ],
           ),
           SizedBox(
-            height: 100,
+            height: 110,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: list.length,
@@ -67,13 +67,13 @@ class _HomeScreenState extends Superbase<HomeScreen> {
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(7)),
                       child: InkWell(
                         onTap: (){
                           widget.onSelectTv(item);
                         },
                         child: SizedBox(
-                          width: 130,
+                          width: 150,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -113,7 +113,7 @@ class _HomeScreenState extends Superbase<HomeScreen> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "Rwanda TVs",
+                    "TV stations",
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
@@ -122,7 +122,7 @@ class _HomeScreenState extends Superbase<HomeScreen> {
             ],
           ),
           SizedBox(
-            height: 100,
+            height: 110,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: list.length,
@@ -133,13 +133,13 @@ class _HomeScreenState extends Superbase<HomeScreen> {
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(7)),
                       child: InkWell(
                         onTap: (){
                           widget.onSelectTv(item);
                         },
                         child: SizedBox(
-                          width: 130,
+                          width: 150,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -188,7 +188,7 @@ class _HomeScreenState extends Superbase<HomeScreen> {
             ],
           ),
           SizedBox(
-            height: 100,
+            height: 110,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: radios.length,
@@ -199,13 +199,13 @@ class _HomeScreenState extends Superbase<HomeScreen> {
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(7)),
                       child: InkWell(
                         onTap: (){
                           widget.onSelectRadio(item);
                         },
                         child: SizedBox(
-                          width: 130,
+                          width: 150,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [

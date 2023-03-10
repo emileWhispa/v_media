@@ -19,7 +19,12 @@ class Homepage extends StatefulWidget{
 class _HomepageState extends Superbase<Homepage> {
   List<TvItem> list = [];
   List<RadioItem> radios = [];
-  TvItem? _tvItem;
+  TvItem? _tvItem = TvItem.fromJson({
+    "tv_url":"rtsp://80.241.215.175:1935/victorytv/victorytv",
+    "tv_name":"Victory",
+    "tv_id":"12",
+    "tv_thumbnail":"http://vmedia.devslab.io/covers/thumbnail.png",
+  });
   RadioItem? _radioItem;
 
   @override
@@ -41,7 +46,7 @@ class _HomepageState extends Superbase<Homepage> {
 
   Future<void> loadData() {
     return ajax(
-        url: "tvs/",
+        url: "tvs/?category=sport",
         onValue: (s, v) {
           setState(() {
             list = (s['tvs'] as Iterable?)
