@@ -31,6 +31,10 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.indigo,
+          cardTheme: const CardTheme(
+              shadowColor: Colors.black26,
+              elevation: 6.0
+          ),
         appBarTheme: const AppBarTheme(
           elevation: 1.0,
           centerTitle: true,

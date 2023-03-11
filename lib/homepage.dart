@@ -17,6 +17,7 @@ class Homepage extends StatefulWidget{
 }
 
 class _HomepageState extends Superbase<Homepage> {
+  List<TvItem> list0 = [];
   List<TvItem> list = [];
   List<RadioItem> radios = [];
   TvItem? _tvItem = TvItem.fromJson({
@@ -31,6 +32,7 @@ class _HomepageState extends Superbase<Homepage> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       loadData();
+      loadData0();
       loadRadios();
     });
     super.initState();
@@ -46,10 +48,23 @@ class _HomepageState extends Superbase<Homepage> {
 
   Future<void> loadData() {
     return ajax(
-        url: "tvs/?category=sport",
+        url: "tvs/?category=",
         onValue: (s, v) {
           setState(() {
             list = (s['tvs'] as Iterable?)
+                ?.map((e) => TvItem.fromJson(e))
+                .toList() ??
+                [];
+          });
+        });
+  }
+
+  Future<void> loadData0() {
+    return ajax(
+        url: "tvs/?category=sport",
+        onValue: (s, v) {
+          setState(() {
+            list0 = (s['tvs'] as Iterable?)
                 ?.map((e) => TvItem.fromJson(e))
                 .toList() ??
                 [];
@@ -81,7 +96,7 @@ class _HomepageState extends Superbase<Homepage> {
     var object = IndexedStack(
       index: _index,
       children: [
-        HomeScreen(tvs: list,radios: radios,onSelectRadio: onPlayRadio,onSelectTv: onPlayTv,tvItem: _tvItem,),
+        HomeScreen(tvs: list,tvs0: list0,radios: radios,onSelectRadio: onPlayRadio,onSelectTv: onPlayTv,tvItem: _tvItem,),
         RadioScreen(radios: radios,onSelect: onPlayRadio,radioItem: _radioItem,),
         const Center(),
       ],
@@ -104,7 +119,7 @@ class _HomepageState extends Superbase<Homepage> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.wifi),label: "Radio"),
-          BottomNavigationBarItem(icon: Icon(Icons.info),label: "Account"),
+          BottomNavigationBarItem(icon: Icon(Icons.info),label: "About"),
         ],
       ),
     );

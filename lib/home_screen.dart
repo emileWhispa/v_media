@@ -6,12 +6,13 @@ import 'package:v_media/super_base.dart';
 import 'package:v_media/tv_player.dart';
 
 class HomeScreen extends StatefulWidget {
+  final List<TvItem> tvs0;
   final List<TvItem> tvs;
   final List<RadioItem> radios;
   final void Function(RadioItem item) onSelectRadio;
   final void Function(TvItem item) onSelectTv;
   final TvItem? tvItem;
-  const HomeScreen({super.key, required this.tvs, required this.radios, required this.onSelectRadio, required this.onSelectTv, this.tvItem});
+  const HomeScreen({super.key, required this.tvs, required this.radios, required this.onSelectRadio, required this.onSelectTv, this.tvItem, required this.tvs0});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -28,10 +29,12 @@ class _HomeScreenState extends Superbase<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var list0 = widget.tvs0;
     var list = widget.tvs;
     var radios = widget.radios;
     var tvItem = widget.tvItem;
     return Scaffold(
+      backgroundColor: const Color(0xffF7F7F7),
       appBar: AppBar(
         title: Image.asset(
           "assets/logo.png",
@@ -56,14 +59,14 @@ class _HomeScreenState extends Superbase<HomeScreen> {
             ],
           ),
           SizedBox(
-            height: 110,
+            height: 130,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: list.length,
+                itemCount: list0.length,
                 itemBuilder: (context, index) {
-                  var item = list[index];
+                  var item = list0[index];
                   return Padding(
-                    padding: const EdgeInsets.only(right: 5),
+                    padding: const EdgeInsets.only(right: 5,bottom: 5),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       shape: RoundedRectangleBorder(
@@ -122,14 +125,14 @@ class _HomeScreenState extends Superbase<HomeScreen> {
             ],
           ),
           SizedBox(
-            height: 110,
+            height: 130,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: list.length,
                 itemBuilder: (context, index) {
                   var item = list[index];
                   return Padding(
-                    padding: const EdgeInsets.only(right: 5),
+                    padding: const EdgeInsets.only(right: 5,bottom: 5),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       shape: RoundedRectangleBorder(
@@ -188,14 +191,14 @@ class _HomeScreenState extends Superbase<HomeScreen> {
             ],
           ),
           SizedBox(
-            height: 110,
+            height: 130,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: radios.length,
                 itemBuilder: (context, index) {
                   var item = radios[index];
                   return Padding(
-                    padding: const EdgeInsets.only(right: 5),
+                    padding: const EdgeInsets.only(right: 5,bottom: 5),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       shape: RoundedRectangleBorder(
