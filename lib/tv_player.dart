@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 import 'package:v_media/json/tv.dart';
+import 'package:v_media/vlc_play_with_controls.dart';
 
 class RemoteTvPlayer extends StatefulWidget {
   final TvItem tvItem;
@@ -67,11 +68,11 @@ class _RemoteTvPlayerState extends State<RemoteTvPlayer> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 300,
-      child: _videoPlayerController != null ?  VlcPlayer(
+      child: _videoPlayerController != null ?  VlcPlayerWithControls(
         controller: _videoPlayerController!,
-        aspectRatio: 16 / 9,
-        virtualDisplay: true,
-        placeholder: const Center(child: CircularProgressIndicator()),
+        // aspectRatio: 16 / 9,
+        // virtualDisplay: false,
+        // placeholder: const Center(child: CircularProgressIndicator()),
       ) : const Center(child: CircularProgressIndicator(),),
     );
   }

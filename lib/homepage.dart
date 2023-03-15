@@ -24,6 +24,7 @@ class _HomepageState extends Superbase<Homepage> {
     "tv_url":"rtsp://80.241.215.175:1935/victorytv/victorytv",
     "tv_name":"Victory",
     "tv_id":"12",
+    "category":"",
     "tv_thumbnail":"http://vmedia.devslab.io/covers/thumbnail.png",
   });
   RadioItem? _radioItem;
@@ -51,12 +52,13 @@ class _HomepageState extends Superbase<Homepage> {
         url: "tvs/?category=",
         onValue: (s, v) {
           setState(() {
+            print(v);
             list = (s['tvs'] as Iterable?)
                 ?.map((e) => TvItem.fromJson(e))
                 .toList() ??
                 [];
           });
-        });
+        },error: (s,v)=>print(s));
   }
 
   Future<void> loadData0() {

@@ -4,6 +4,7 @@ import 'package:v_media/json/radio.dart';
 import 'package:v_media/json/tv.dart';
 import 'package:v_media/super_base.dart';
 import 'package:v_media/tv_player.dart';
+import 'package:v_media/video_player_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final List<TvItem> tvs0;
@@ -43,7 +44,7 @@ class _HomeScreenState extends Superbase<HomeScreen> {
       ),
       body: ListView(
         children: [
-          tvItem != null ? RemoteTvPlayer(tvItem: tvItem) : Image.asset("assets/slider.png"),
+          tvItem != null ? tvItem.category == 'youtube' ? VideoPlayerScreen(video: tvItem) : RemoteTvPlayer(tvItem: tvItem) : Image.asset("assets/slider.png"),
           Row(
             children: [
               Expanded(
@@ -162,6 +163,8 @@ class _HomeScreenState extends Superbase<HomeScreen> {
                                   children: [
                                     Text(
                                       item.name,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
                                       style: const TextStyle(
                                           fontWeight: FontWeight.w400),
                                     ),
@@ -228,6 +231,8 @@ class _HomeScreenState extends Superbase<HomeScreen> {
                                   children: [
                                     Text(
                                       item.name,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
                                       style: const TextStyle(
                                           fontWeight: FontWeight.w400),
                                     ),
