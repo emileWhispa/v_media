@@ -447,7 +447,11 @@ packages:
       name: sqflite
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< Updated upstream
     version: "2.2.6"
+=======
+    version: "2.2.5"
+>>>>>>> Stashed changes
   sqflite_common:
     dependency: transitive
     description:
@@ -587,7 +591,11 @@ packages:
       name: video_player_android
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< Updated upstream
     version: "2.4.2"
+=======
+    version: "2.4.0"
+>>>>>>> Stashed changes
   video_player_avfoundation:
     dependency: transitive
     description:
