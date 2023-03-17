@@ -3,7 +3,6 @@ import 'package:v_media/home_screen.dart';
 import 'package:v_media/radio_player.dart';
 import 'package:v_media/radio_screen.dart';
 import 'package:v_media/super_base.dart';
-import 'package:v_media/tv_player.dart';
 
 import 'json/radio.dart';
 import 'json/tv.dart';
@@ -52,13 +51,12 @@ class _HomepageState extends Superbase<Homepage> {
         url: "tvs/?category=",
         onValue: (s, v) {
           setState(() {
-            print(v);
             list = (s['tvs'] as Iterable?)
                 ?.map((e) => TvItem.fromJson(e))
                 .toList() ??
                 [];
           });
-        },error: (s,v)=>print(s));
+        });
   }
 
   Future<void> loadData0() {

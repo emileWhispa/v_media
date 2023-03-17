@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:v_media/json/radio.dart';
 import 'package:v_media/json/tv.dart';
 import 'package:v_media/super_base.dart';
+import 'package:v_media/television.dart';
 import 'package:v_media/tv_player.dart';
 import 'package:v_media/video_player_screen.dart';
 
@@ -44,7 +45,7 @@ class _HomeScreenState extends Superbase<HomeScreen> {
       ),
       body: ListView(
         children: [
-          tvItem != null ? tvItem.category == 'youtube' ? VideoPlayerScreen(video: tvItem) : RemoteTvPlayer(tvItem: tvItem) : Image.asset("assets/slider.png"),
+          tvItem != null ? tvItem.category == 'youtube' ? VideoPlayerScreen(video: tvItem) : !tvItem.url.startsWith("rtsp") ? Television(tvItem: tvItem,) : RemoteTvPlayer(tvItem: tvItem) : Image.asset("assets/slider.png"),
           Row(
             children: [
               Expanded(

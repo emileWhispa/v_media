@@ -294,9 +294,9 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls>
                   child: AnimatedOpacity(
                     opacity: recordingTextOpacity,
                     duration: const Duration(seconds: 1),
-                    child: Wrap(
+                    child: const Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
-                      children: const [
+                      children: [
                         Icon(Icons.circle, color: Colors.red),
                         SizedBox(width: 5),
                         Text(
