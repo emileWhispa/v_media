@@ -3,7 +3,6 @@ import 'package:v_media/home_screen.dart';
 import 'package:v_media/radio_player.dart';
 import 'package:v_media/radio_screen.dart';
 import 'package:v_media/super_base.dart';
-import 'package:v_media/tv_player.dart';
 
 import 'json/radio.dart';
 import 'json/tv.dart';

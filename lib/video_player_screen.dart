@@ -23,13 +23,25 @@ class _VideoPlayerScreenState extends Superbase<VideoPlayerScreen> {
   @override
   void initState() {
     super.initState();
+    initVideo();
+
+  }
+
+  void initVideo(){
     _controller = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(widget.video.url)!,
       flags: const YoutubePlayerFlags(
         autoPlay: true,
       ),
     );
+  }
 
+  @override
+  void didUpdateWidget(covariant VideoPlayerScreen oldWidget) {
+    if(oldWidget.video.url != widget.video.url){
+    _controller.load(YoutubePlayer.convertUrlToId(widget.video.url)!);
+    }
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
