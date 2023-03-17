@@ -51,13 +51,12 @@ class _HomepageState extends Superbase<Homepage> {
         url: "tvs/?category=",
         onValue: (s, v) {
           setState(() {
-            print(v);
             list = (s['tvs'] as Iterable?)
                 ?.map((e) => TvItem.fromJson(e))
                 .toList() ??
                 [];
           });
-        },error: (s,v)=>print(s));
+        });
   }
 
   Future<void> loadData0() {
